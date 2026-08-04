@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund & Cancellation Policy | JNRS Hotels</title>
+    
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark: #0a0c10;
+            --light-gray: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header Section */
+        .policy-header-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('images/deluxe.png');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0 60px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .policy-header-hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .policy-header-hero p { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
+
+        /* Main Content Grid */
+        .policy-content-wrap { padding: 80px 0; }
+        
+        .policy-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+        }
+
+        /* Intro Box */
+        .intro-box {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--gold);
+            margin-bottom: 40px;
+        }
+
+        /* Table Design */
+        .criteria-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 30px;
+            border: 1px solid #eee;
+        }
+
+        .criteria-card h3 { margin-bottom: 25px; display: flex; align-items: center; gap: 10px; }
+
+        .refund-table { width: 100%; border-collapse: collapse; }
+        .refund-table th { text-align: left; padding: 15px; background: #f1f1f1; font-weight: 600; }
+        .refund-table td { padding: 15px; border-bottom: 1px solid #eee; }
+
+        .status-pill {
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .full { background: #d1fae5; color: #065f46; }
+        .half { background: #fef3c7; color: #92400e; }
+        .none { background: #fee2e2; color: #991b1b; }
+
+        /* Sidebar Info */
+        .contact-sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+        .contact-card {
+            background: var(--dark);
+            color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card h4 { color: var(--gold); margin-top: 0; }
+        .contact-card p { font-size: 0.9rem; color: #ccc; }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .contact-link:hover { color: var(--gold); }
+
+        .notice-box {
+            background: #fff9e6;
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px dashed #d4af37;
+        }
+
+        /* Back Button */
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .policy-grid { grid-template-columns: 1fr; }
+            .policy-header-hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+  <header>
+        <a href="index.html" class="logo">
+          <div class="logo">
+                <img src="images/logo.png" alt="JNRS Logo">
+                           <span>जनरस</span></a>
+           </div>
+           </a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav>
+            <ul class="nav-links" id="nav-list" style="font-size:35px;">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html#accoommodation">Accommodation</a></li>
+                <li><a href="index.html#attractions">Attractions</a></li>
+                <li><a href="#contact" class="btn-contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="policy-header-hero">
+        <div class="container">
+            <p>Transparency & Trust</p>
+            <h1>Refund & Cancellation</h1>
+        </div>
+    </section>
+
+    <div class="container policy-content-wrap">
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+        <div class="policy-grid">
+            <div class="main-policy-info" data-aos="fade-up">
+                <div class="intro-box">
+                    <p><strong>JNRS  HILLS HEAVEN VILLAS PAHALGAM
+ & JNRS WOODEN COTTAGE PAHALGAM</strong> is committed to providing you with a simple and efficient refund process.</p>
+                </div>
+
+                <div class="criteria-card">
+                    <h3><i class="fas fa-calendar-check"></i> Cancellation Criteria</h3>
+                    <table class="refund-table">
+                        <thead>
+                            <tr>
+                                <th>Timeline</th>
+                                <th>Refund Policy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Before 30 Days</td>
+                                <td><span class="status-pill full">Refund 100%</span></td>
+                            </tr>
+                            <tr>
+                                <td>Before 15 Days</td>
+                                <td><span class="status-pill half">50% Refund</span> (50% Retention)</td>
+                            </tr>
+                            <tr>
+                                <td>Before 07 Days</td>
+                                <td><span class="status-pill half" style="background:#ffedd5">25% Refund</span> (75% Retention)</td>
+                            </tr>
+                            <tr>
+                                <td>Within 07 Days</td>
+                                <td><span class="status-pill none">No Refund</span> (100% Retention)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="detailed-text" style="margin-top: 40px; margin-left:1rem;">
+                    <p><i class="fas fa-exclamation-circle" style="color: #e53e3e;"></i> <strong>Important Note:</strong> Shortening your stay during the high season, periods of high occupancy, during trade fairs and conventions, or failure to cancel your reservation prior to the due date may result in a penalty charge. If a penalty charge is incurred, this will be deducted from the amount refunded.</p>
+                </div>
+            </div>
+
+            <div class="contact-sidebar" data-aos="fade-left">
+                <div class="contact-card">
+                    <h4>How to Request?</h4>
+                    <p>To request a refund, please contact our administration team via any of these channels:</p>
+                    
+                    <a href="http://www.jnrs.in/" class="contact-link">
+                        <i class="fas fa-globe"></i> www.jnrs.in
+                    </a>
+                     <a href="https://www.jnrsclub.in/" class="contact-link">
+                        <i class="fas fa-globe"></i>www.jnrsclub.in
+                    </a>
+                    <a href="mailto:jnrshospitality@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i> jnrshospitality@gmail.com
+                    </a>
+                </div>
+
+                <div class="notice-box">
+                    <h4><i class="far fa-clock"></i> Processing Time</h4>
+                    <p style="font-size: 0.85rem; margin: 0;">If your refund is likely to take longer than <strong>15 days</strong> to process, we will notify you via email upon receipt of your request.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <div class="booking-wrapper">
+        <section class="booking-section">
+            <div class="booking-left">
+                <h2>Plan Your Escape</h2>
+                <p class="pc">In the paradise of Kashmir—where summers glow, winters sparkle with snow, and every occasion becomes magical—your story begins here.</p>
+               <br>
+                <div class="reservation-box">
+                    
+                    <div class="res-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                    <div class="res-text">
+                         <!-- <a href="tel:9321235958" class="action-card"></a> -->
+                        <span>Reservation</span>
+                       
+                        <div class="res-numbers">
+                           +91 9326202694
+                        </div>
+                    </a>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="booking-right">
+                <div class="form-header">
+                    <span style="text-transform: uppercase; letter-spacing: 3px; font-size: 11px; color: #777; display: block; margin-bottom: 10px;">Rooms & Suites</span>
+                    <h3>Hotel Booking Form</h3>
+                </div>
+
+                <form class="booking-form">
+                    <div class="input-group">
+                        <input type="text" placeholder="Name" required>
+                        <!-- <i class="fa-regular fa-user"></i> -->
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="tel" placeholder="Phone" required>
+                        <!-- <i class="fa-solid fa-mobile-screen-button"></i> -->
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Check in">
+                        <!-- <i class="fa-regular fa-calendar-days"></i> -->
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Check out">
+                        <!-- <i class="fa-regular fa-calendar-days"></i> -->
+                    </div>
+
+                    <div class="input-group">
+                        <select>
+                            <option value="" disabled selected>Adults</option>
+                            <option>1 Adult</option>
+                            <option>2 Adults</option>
+                            <option>3 Adults</option>
+                        </select>
+                        <!-- <i class="fa-solid fa-chevron-down"></i> -->
+                    </div>
+
+                    <div class="input-group">
+                        <select>
+                            <option value="" disabled selected>Children</option>
+                            <option>None</option>
+                            <option>1 Child</option>
+                            <option>2 Children</option>
+                        </select>
+                        <!-- <i class="fa-solid fa-chevron-down"></i> -->
+                    </div>
+
+                    <div class="input-group" style="grid-column: span 2;">
+                        <select>
+                            <option>1 Room</option>
+                            <option>2 Rooms</option>
+                            <option>3 Rooms</option>
+                        </select>
+                        <!-- <i class="fa-solid fa-chevron-down"></i> -->
+                    </div>
+
+                    <button type="submit" class="check-btn">BOOK NOW</button>
+                </form>
+            </div>
+        </section>
+        
+        
+    </div>
+    <!-- footer -->
+     <footer class="main-footer" data-aos="fade-up">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-col brand-info">
+                <a href="#" class="logo footer-logo"><span>JNRS</span></a>
+                <p class="brand-quote">"If there is a heaven on earth, it's here, it's here, it's here."</p>
+                
+                <div class="contact-actions">
+                    <a href="tel:9326202694" class="action-card">
+                        <div class="icon-box-sm"><i class="fas fa-phone-alt"></i></div>
+                        <div class="action-text">
+                            <span id="contact">Call Us</span>
+                            <p>+91 9326202694</p>
+                        </div>
+                    </a>
+                    <a href="mailto:reservations@jnrshotels.com" class="action-card">
+                        <div class="icon-box-sm"><i class="far fa-envelope"></i></div>
+                        <div class="action-text">
+                            <span>Email Us</span>
+                            <p>jnrshospitality@gmail.com</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="social-wrapper">
+                    <a href="https://www.facebook.com/dazzling.travels.92" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jnrsinfrastructurepvtltd" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <!-- <a href="#" class="social-link" target="_blank"><i class="fab fa-google"></i></a> -->
+                </div>
+                  <div class="footer-links">
+                  <a href="terms.html" class="footer-btn">Terms & Condition</a>
+                      <a href="refund-policy.html" class="footer-btn">Privacy Policy</a>
+                          <!-- <a href="#" class="footer-btn">Blog</a> -->
+            </div>
+                </div>
+
+            <div class="footer-col">
+                <h4 class="col-title">JNRS HILLS HEAVEN VILLAS Pahalgam </h4>
+                <div class="loc-content">
+                    <p class="loc-detail">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        Pahalgam, Forest Block, Jammu and Kashmir 192126
+                    </p>
+                    <div class="mini-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.2345!2d74.812345!3d34.012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAwJzQ0LjQiTiA3NMKwNDgnNDQuNCJF!5e0!3m2!1sen!2sin!4v1625000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                        <a href="https://www.bing.com/maps/directions?ty=18&vdpid=6981728360552464385&v=2&sV=1&qpvt=Pahalgam%2C+Forest+Block%2C+Jammu+and+Kashmir+192126&FORM=MIRE&style=r&rtp=%7Epos.33.89888381958008_75.32608032226562_Forest%2520Block%252C%2520Pahalgam%252C%2520Anantnag%2520District%252C%2520Jammu%2520%2526%2520Kashmir_Forest%2520Block%252C%2520Pahalgam%252C%2520Anantnag%2520District%252C%2520Jammu%2520%2526%2520Kashmir_&cp=33.898884%7E75.326080&lvl=16" target="_blank" class="map-btn">Get Direction <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <br>
+                <br>
+                
+            </div>
+            
+
+            <div class="footer-col">
+                <h4 class="col-title">JNRS Wooden Cottage Pahalgam  </h4>
+                <div class="loc-content">
+                    <p class="loc-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                         
+  Village Lidroo, Pahalgam - 192126
+                    </p>
+                    <div class="mini-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.1234!2d75.312345!3d34.022345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAxJzIwLjAiTiA3NcKwMTgnNDQuNCJF!5e0!3m2!1sen!2sin!4v1625000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                        <a href="https://maps.app.goo.gl/pWcfEBao93suQa9q9" target="_blank" class="map-btn">Get Direction <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container bottom-flex">
+            <p>© 2025 JNRS Infrastructure Pvt Ltd. | Crafted for Luxury</p>
+            <!-- <div class="trust-badges">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fas fa-shield-alt"></i>
+            </div> -->
+        </div>
+    </div>
+</footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+    
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

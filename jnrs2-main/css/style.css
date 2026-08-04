@@ -1,0 +1,1582 @@
+
+  /* Universal Reset */
+
+
+
+
+
+
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+
+html, body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    background-color:white;
+}
+
+
+
+/* video */
+
+
+.video-section {
+    width: 100%;
+    padding: 40px 20px; /* Padding thoda kam kiya */
+    background: #f5f7fa;
+    text-align: center;
+    /* Height yaha se hatayein taaki content ke hisab se adjust ho */
+}
+
+.video-box {
+    position: relative;
+    width: 83%; /* Video ki width thodi kam ki screen par center dikhne ke liye */
+     /* Laptop par bahut bada na dikhe */
+    margin: 0 auto; /* Center alignment */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    
+    /* Yaha se aap height control kar sakte hain */
+    height: 600px; /* Aap is value ko 300px ya 400px karke check kar sakte hain */
+}
+
+.video-box video {
+    width: 100%;
+    height: 100%; /* Box ki height ko fill karega */
+    display: block;
+    object-fit: cover; /* Video stretch nahi hogi, perfectly crop hokar fit hogi */
+}
+
+/* Mobile ke liye height adjust karein */
+@media (max-width: 768px) {
+    .video-box {
+        width: 100%;
+        height: 250px; /* Mobile par height kam rakhi */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8%; /* Vertical padding thoda kam kiya hai logo fit karne ke liye */
+    background: #16291d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* --- Logo Section Start --- */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 55px;         /* Logo ka size yahan se control karein */
+    height: 55px;        /* Width aur Height same rakhein perfect circle ke liye */
+    border-radius: 50%;  /* Perfect Circle ke liye hamesha 50% use karein */
+    object-fit: cover;   /* Image ko stretch hone se bachata hai */
+    border: 2px solid #e67e22; /* Optional: Logo ke charo taraf ek orange ring */
+}
+
+.logo span { 
+    color: #e67e22; 
+    margin-left: 10px; /* Logo aur text ke beech gap */
+    font-weight: 700;
+    font-size:40px;
+}
+/* --- Logo Section End --- */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #f5f5f6;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links li a:not(.btn-contact):hover { 
+    color: #e67e22; 
+}
+
+.btn-contact {
+    background: #e67e22;
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 37px;
+    cursor: pointer;
+    color: #ffffff; /* Green background par black ki jagah white behtar dikhega */
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 992px) {
+    header { 
+        padding: 10px 20px; 
+        width: 100%;
+    }
+
+    .menu-toggle { 
+        display: block; 
+        margin-right: -8rem; /* Margin-right ko clean kiya */
+    }
+  
+    .logo img{
+    /* display: flex; */
+    /* align-items: center; */
+    /* text-decoration: none; */
+    margin-left:-10em;
+   }
+
+    .nav-links {
+        position: absolute;
+        top: 75px; 
+        right: 5%;
+        width: 200px;
+        background: #020202;
+        flex-direction: column;
+        gap: 10px;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .btn-contact {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+/* body{
+    background:#000;
+    font-family: Arial, sans-serif;
+} */
+
+/* HERO SECTION */
+.hero-section{
+   position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000; /* Background black taaki vertical images ke side mein khali na dikhe */
+    margin-top:0.01rem;
+}
+
+/* SLIDER WRAPPER */
+.slider{
+    width: 100%; /* Ise 100% rakhein taaki responsive rahe */
+    height:100%;
+}
+
+/* SLIDE */
+.slide{
+    position: absolute;
+    /* top:1rem; */
+    left: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Active Slide */
+.slide.active{
+    opacity:1;
+}
+
+/* Horizontal Image (default) */
+.cover{
+    background-size:900px;
+}
+
+/* Vertical Image */
+.contain{
+    background-size:contain;
+    background-color:#000;
+}
+
+/* Sabse pehle Desktop/Laptop ke liye default style */
+ 
+
+/* MOBILE */
+@media(max-width:768px){
+    .overlay h1{
+        font-size:24px;
+    }
+}
+        /* sayari */
+        .shayari-container {
+    margin-top:5px;
+    padding-top: 10px;
+    /* border-top: 1px solid rgba(12, 12, 12, 0.3); Halka sa orange line separator */
+    text-align: center;
+}
+ 
+
+.persian-text {
+    font-family: 'Poppins', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #0a0a0a; /* Golden color */
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.translation {
+    font-size: 0.9rem;
+    color: #090909;
+    opacity: 0.7;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Mobile responsive ke liye */
+@media (max-width: 768px) {
+    .persian-text { font-size: 1.1rem; }
+    .translation { font-size: 0.7rem; }
+}
+/* --- MEDIA QUERIES --- */
+
+/* 1. Tablets aur Choti Screens ke liye (Max-width: 1024px) */
+@media (max-width: 1024px) {
+    .slider {
+        width: 100%; /* Slider ko poori width do */
+        height: 100%; /* Height thodi kam kar sakte hain landscape images ke liye */
+    }
+}
+
+/* 2. Mobile Phones ke liye (Max-width: 768px) */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh; /* Mobile par height thodi kam rakhein taaki content niche dikhe */
+    }
+
+    .slider {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Vertical images ko mobile screen par fit karne ke liye */
+    .slide {
+        background-size: contain !important; /* Forcefully image ko fit karega */
+        background-position: center;    /* Image ko upar se align karega */
+        width:100%;
+        height:auto;
+    }
+
+    /* Agar aapne inline width/height di hai, toh use reset karein */
+    /* .slide[style] {
+        width: 100% !important;
+        height: 100% !important;
+    } */
+}
+
+/* 3. Bahut chote phones ke liye (Max-width: 480px) */
+@media (max-width: 480px) {
+    .hero-section {
+        height: 50vh; /* Chote mobile ke liye optimized height */
+    }
+
+    .persian-text {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+
+    .translation {
+        font-size: 0.6rem;
+    }
+}
+
+
+
+
+/* --- 3) WELCOME SECTION --- */
+
+ :root {
+    --gold: #e67e22;
+    --dark-green: #073107;
+    --light-text: #555;
+}
+
+.container-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px; /* Thoda kam kiya professional look ke liye */
+    margin: 80px auto;
+    padding: 0 5%;
+    gap: 60px;
+    /* background-color:white; */
+}
+
+/* --- Left Side: Text --- */
+ 
+
+.sub-heading-1 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--gold);
+}
+
+.main-heading-1 {
+    font-family: 'Tenor Sans', serif;
+    font-size: 36px; /* Optimized size */
+    line-height: 1.3;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+}
+
+.description-1 {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--light-text);
+    margin-bottom: 20px;
+    text-align: left; /* Justify se better left-align lagta hai modern UI mein */
+}
+
+/* Reservation Box */
+.reservation-box-1 {
+    display: flex;
+    align-items: center;
+    /* margin-right:12rem; */
+     /* margin-bottom:-5rem; */
+    gap: 15px;
+}
+
+.icon-circle {
+    background: #fdf2e9;
+    padding: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-icon-1 {
+    width: 24px;
+    height: 24px;
+    stroke: var(--gold);
+}
+
+.res-text-1 p {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.res-text-1 span {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-green);
+}
+
+/* --- Right Side: Images --- */
+
+
+/* --- Right Side: Images Section --- */
+ 
+
+.img-wrapper-tall {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 6px; /* Thoda zyada round professional lagta hai */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* 1. LEFT IMAGE: Ise niche karne ke liye */
+.img-wrapper-tall {
+    margin-top: 10px; /* Isse left image niche ho jayegi */
+}
+
+.img-wrapper-tall img{
+    width:100%;
+    height:600px;
+}
+ 
+
+.img-tall-1{
+    width: 100%;
+    height: 380px; /* Size thoda aur compact kiya professional look ke liye */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+/* --- Mobile Styling --- */
+@media (max-width: 992px) {
+    .container-welcome {
+        flex-direction: column;
+        text-align: center;
+        margin: 40px auto;
+    }
+    
+    .description-1 { text-align: center; }
+
+   .res-text-1 span {
+    font-size:15px;
+    font-weight:200;
+    color: var(--dark-green);
+}
+    
+    .reservation-box-1 { justify-content: center;
+        }
+}
+ /* --- Mobile Styling Updated --- */
+@media (max-width: 992px) {
+    .container-welcome {
+        flex-direction: column; /* Text upar, images niche */
+        text-align: center;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    
+    .description-1 { 
+        text-align: center; 
+    }
+
+     
+    
+    .img-wrapper-tall{
+        width: 100%; /* Mobile par dono images side-by-side aayengi */
+    }
+
+    /* LEFT IMAGE: Mobile par bhi niche rahegi */
+    .img-wrapper-tall {
+        margin-top: 50px; /* Mobile ke liye thoda kam gap (adjustment) */
+    }
+
+    /* RIGHT IMAGE: Mobile par upar rahegi */
+    .img-wrapper-short {
+        margin-top: 0;
+    }
+    
+    .img-tall-1{
+        height: 100%; /* Mobile par height thodi kam taaki screen par fit aaye */
+    }
+    
+    .reservation-box-1 { 
+        justify-content: center; 
+    }
+}
+
+
+/* --- Mobile Styling Updated --- */
+@media (max-width: 992px) {
+    .container-welcome {
+        flex-direction: column; 
+        text-align: left; /* Laptop jaisa left align rakhne ke liye */
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+    
+    .description-1 { 
+        text-align: left; /* Laptop screen jaisa left alignment */
+    }
+
+    /* Reservation Box Alignment (Laptop style) */
+    .reservation-box-1 { 
+        justify-content: flex-start; /* Isse content center ke bajaye left se start hoga */
+        margin-right: 0; /* Laptop ke heavy margin ko reset kiya */
+        margin-bottom:-70px; /* Overlap issue fix karne ke liye */
+        gap: 15px;
+    }
+
+    /* Text Boldness & Styling */
+    .res-text-1 p {
+         font-size:15px; /* Laptop jaisa bada size */
+        font-weight: 800; /* Number ko extra bold kiya */
+        color: var(--dark-green);
+        display: block; /* Number ko nayi line par lane ke liye */
+    }
+
+    .res-text-1 span {
+        font-size: 20px; /* Laptop jaisa bada size */
+        font-weight: 800; /* Number ko extra bold kiya */
+        color: var(--dark-green);
+        display: block; /* Number ko nayi line par lane ke liye */
+    }
+
+    /* Images Side-by-Side as requested */
+    .image-side-1 {
+        width: 100%;
+        display: flex; 
+        
+        justify-content: center;
+        align-items: flex-start; 
+    }
+    
+    .img-wrapper-tall{
+        width: 100%; 
+    }
+
+    .img-wrapper-tall {
+        margin-top: 40px; /* Staircase effect maintain rakha */
+    }
+
+    .img-wrapper-short {
+        margin-top: 0;
+    }
+    
+    .img-tall-1{
+        height: 280px; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* why stay */
+/* --- Desktop & General Styles --- */
+.experience-section {
+    padding: 60px 0;
+    background-color:#F1EDE4;
+    font-family: 'Poppins', sans-serif;
+    color: #444;
+}
+
+.experience-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #222;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+
+.experience-list {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 20px; /* Desktop gap */
+    line-height: 1.6;
+    font-size: 1.05rem;
+    color: #555;
+    text-align: left; /* Text-justify se mobile par gaps aate hain, left align clean hai */
+}
+
+.experience-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #e67e22; /* Aapke theme ka orange color */
+    font-size: 1.5rem;
+    top: -2px;
+}
+
+.experience-list li strong {
+    color: #222;
+    font-weight: 600;
+    display: inline; /* Heading aur text ek hi line se shuru honge */
+}
+
+/* --- Mobile Responsive (Phone ke liye adjustments) --- */
+@media (max-width: 768px) {
+    .experience-section {
+        padding: 40px 0; /* Section padding thodi kam ki */
+    }
+
+    .main-heading {
+        /* Heading ko ek line mein laane ke liye size chota kiya */
+        font-size: 12px; 
+        letter-spacing: 0.5px;
+        margin-bottom: 20px;
+        text-align: center; /* Mobile par center heading professional lagti hai */
+        white-space: nowrap; /* Force karega ek line mein rehne ko */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Agar screen bahut choti ho toh text katega nahi */
+    }
+
+    .experience-list li {
+        font-size: 14px;
+        margin-bottom: 12px; /* Subheadings ke beech gap kam kar diya */
+        padding-left: 20px;
+        line-height: 1.5;
+    }
+
+    .experience-list li::before {
+        font-size: 1.2rem;
+        top: -3px;
+    }
+}
+
+
+
+        /* Facilities Section Styling */
+
+/* --- Section 2: Hotel Facilities (Combined & Professional) --- */
+.facilities-section {
+    padding: 60px 6%; 
+    text-align: center;
+    background-color:#F1EDE4;
+    margin-top: 0;
+}
+
+/* Subheading/Badge Styling */
+.fac-badge {
+    text-transform: uppercase;
+    letter-spacing: 3px; 
+    font-size: 13px;
+    color: #e67e22; /* Theme Gold/Orange */
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Main Heading Styling */
+.fac-title {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 34px; /* Professional size for desktop */
+    color: #5c3d2e;
+    margin-bottom: 45px;
+    line-height: 1.2;
+}
+
+/* Facilities Grid Layout */
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.fac-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px !important;
+}
+
+.fac-icon {
+    font-size: 32px;
+    color: #5c3d2e;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.fac-item span {
+    font-size: 13px;
+    color: #1a1a1a;
+    font-weight: 400;
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+/* Hover Effect */
+.fac-item:hover .fac-icon {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* --- Responsive View (Phone & Tablets) --- */
+@media (max-width: 992px) {
+    .facilities-section {
+        padding: 40px 15px;
+    }
+
+    .fac-title {
+        /* Phone par ek line mein fit karne ke liye logic */
+        font-size: 18px; 
+        white-space: nowrap; 
+        letter-spacing: 0.5px;
+        margin-bottom: 30px;
+        font-weight: 600;
+    }
+
+    .fac-badge {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    /* Mobile par 3 columns ka grid */
+    .facilities-grid { 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 25px 10px; 
+    }
+
+    .fac-icon {
+        font-size: 26px; /* Mobile par icon thoda chota */
+    }
+
+    .fac-item span {
+        font-size: 11px; /* Text bhi readable rahega mobile par */
+    }
+}
+/*  */
+
+
+/* Accommodation Section */
+
+        /* Basic reset for CLEAN OVERLAP */
+        
+
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ 
+
+/* Header Section */
+.header-section {
+    padding: 60px 10%;
+    /* background-color: #fdfdfd; Light cream top bar */
+    /* border-top: 15px solid #efeadc; */
+    margin-bottom:-6rem;
+    margin-left:1rem;
+}
+
+.subtitle {
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom:1px;
+    color: #222;
+}
+
+.main-title {
+    font-size: 48px;
+    font-weight: 300;
+    color: #1a3321; /* Dark green tone */
+    font-family: 'Tenor Sans', sans-serif;
+}
+
+/* Attractions Grid */
+.attractions-container {
+    width: 90%;          /* Total width ka 90% lega */
+    max-width: 1200px;   /* Zyada badi screen par 1200px se bahar nahi jayega */
+    margin: 50px auto;   /* 'auto' left/right se center kar dega, 50px top/bottom gap */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Optional: Thoda premium look ke liye */
+    overflow: hidden;    /* Taaki corners clean rahein */
+}
+
+.attraction-row {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 450px;
+}
+
+.attraction-image, .attraction-content {
+    flex: 1;
+    min-width: 50%;
+}
+
+.attraction-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.attraction-content {
+    background-color: #efeadc; /* Beige background from image */
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    text-align:center;
+    align-items: center;
+    justify-content: center;
+}
+
+ 
+/* Alternating Layout Logic */
+.attraction-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Text Elements */
+.label {
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.attraction-content h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.description {
+    line-height: 1.6;
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+/* Button Styling */
+.read-more {
+    display: inline-block;
+    background-color: #1e2d1f; /* Dark forest green */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    width: fit-content;
+    transition: 0.3s;
+}
+
+.read-more:hover {
+    background-color: #2e4530;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .attraction-row, .attraction-row.reverse {
+        flex-direction: column;
+    }
+    .attraction-content {
+        padding: 40px 20px;
+    }
+   .header-section {
+    /* padding: 60px 10%; */
+    /* background-color: #fdfaf3; Light cream top bar */
+    /* border-top: 15px solid #efeadc; */
+    margin-top:-2rem;
+    margin-left:1rem;
+    height:170px;
+}
+
+.subtitle {
+    /* letter-spacing: 3px; */
+    font-size: 12px;
+    font-weight: 500;
+    margin-left:-2rem;
+    color: #222;
+}
+
+.main-title {
+    font-size: 18px;
+    font-weight: 600;
+     margin-left:-2rem;
+    color: #1a3321; /* Dark green tone */
+}
+}
+     
+
+        
+/* refund */
+.policy-overview {
+    padding: 80px 0;
+    background: #fdfdfd;
+}
+
+.overview-wrapper {
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.policy-item {
+    background: #fff;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.policy-header {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.policy-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.policy-header h4 i {
+    color: var(--gold);
+}
+
+.policy-body {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 25px;
+    transition: all 0.4s cubic-bezier(0, 1, 0, 1);
+    background: #fafafa;
+}
+
+.policy-body p {
+    padding-bottom: 20px;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Active State */
+.policy-item.active {
+    border-color: var(--gold);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.policy-item.active .policy-body {
+    max-height: 200px;
+}
+
+.policy-item.active .policy-header i.fa-chevron-down {
+    transform: rotate(180deg);
+    color: var(--gold);
+}
+
+/* More Button Styling */
+.more-btn-wrapper {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.btn-more {
+    padding: 12px 30px;
+    background: var(--gold);
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-more:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* footer */
+:root {
+    --gold: #D4AF37;
+    --dark-footer: #05070a;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+
+
+:root {
+    --gold: #D4AF37;
+    --gold-light: #f1d279;
+    --dark-footer: #262729; /* Slightly darker for better contrast */
+    --text-muted: #a0a8b3;
+    --glass-white: rgba(255, 255, 255, 0.03);
+}
+
+.main-footer {
+    background: var(--dark-footer);
+    color: #ffffff;
+    padding-top: 50px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+/* Brand Section */
+.footer-logo { 
+    font-size: 2.2rem !important; 
+    margin-bottom: 10px; 
+    display: block;
+    text-decoration: none; 
+    color: #fff;
+    font-weight: 700;
+}
+.footer-logo span { color: var(--gold); }
+
+.brand-quote { 
+    font-style: italic; 
+    color: var(--text-muted); 
+    font-size: 0.85rem; 
+    margin-bottom: 25px;
+    border-left: 2px solid var(--gold);
+    padding-left: 10px;
+}
+
+/* Compact Contact Action Cards */
+.contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.action-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--glass-white);
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s ease;
+    width: fit-content;
+}
+
+.action-card:hover {
+    background: rgba(212, 175, 55, 0.08);
+    border-color: var(--gold);
+    transform: translateX(5px);
+}
+
+.icon-box-sm {
+    width: 32px;
+    height: 32px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.action-text span { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.action-text p { margin: 0; font-size: 0.9rem; color: #fff; font-weight: 500; }
+
+/* Property Columns */
+.col-title {
+    color: var(--gold-light);
+    margin-bottom: 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.loc-detail { 
+    font-size: 0.85rem; 
+    color: #cbd5e0; 
+    line-height: 1.5; 
+    margin-bottom: 15px; 
+}
+.loc-detail i { color: var(--gold); margin-right: 8px; font-size: 1rem; }
+
+/* Map Design */
+.mini-map {
+    position: relative;
+    height: 90px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.mini-map iframe { width: 100%; height: 100%; border: none; filter: grayscale(1) invert(0.92) contrast(0.8); }
+
+.map-btn {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: 0.3s;
+}
+.mini-map:hover .map-btn { opacity: 1; }
+
+/* Social Icons */
+.social-wrapper { display: flex; gap: 10px; }
+.social-link {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--glass-white);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; text-decoration: none; transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.social-link:hover { background: var(--gold); color: #000; transform: translateY(-3px); border-color: var(--gold); }
+
+/* Copyright Bar */
+.footer-copyright { 
+    background: #04060a; 
+    padding: 20px 0; 
+    border-top: 1px solid rgba(255,255,255,0.05); 
+}
+.bottom-flex { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+.bottom-flex p { font-size: 0.75rem; color: #64748b; margin: 0; }
+.trust-badges { color: #334155; font-size: 1.2rem; display: flex; gap: 15px; }
+.trust-badges i:hover { color: var(--gold); }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .action-card { margin: 0 auto; }
+    .brand-quote { border-left: none; border-bottom: 2px solid var(--gold); padding: 0 0 10px 0; display: inline-block; }
+    .social-wrapper { justify-content: center; }
+    .bottom-flex { flex-direction: column; gap: 15px; text-align: center; }
+}
+/* --- Social Rotation Animation --- */
+.social-link {
+    width: 38px;
+    height: 38px;
+    background: var(--glass);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    perspective: 1000px; /* For 3D feel */
+}
+
+.social-link i {
+    transition: 0.5s;
+}
+
+.social-link:hover {
+    background: var(--gold);
+    color: #000;
+    transform: translateY(-5px) rotateY(360deg); /* 3D Rotation */
+    border-color: var(--gold);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* --- Map Fix & Visibility --- */
+.mini-map {
+    position: relative;
+    height: 100px;
+    background: #1a1a1a; /* Placeholder color if map loads slow */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.mini-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(100%) invert(90%) opacity(0.7); /* Professional dark look */
+    transition: 0.3s;
+}
+
+.mini-map:hover iframe {
+    filter: grayscale(0%) invert(0%) opacity(1); /* Color comes back on hover */
+}
+
+.map-btn {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.mini-map:hover .map-btn {
+    opacity: 1;
+}
+
+/* --- Quick Contact Sleek Style --- */
+.contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.action-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.action-card:hover {
+    background: rgba(212, 175, 55, 0.05);
+    border-color: var(--gold);
+    transform: translateX(5px);
+}
+
+.icon-box-sm {
+    width: 30px;
+    height: 30px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+
+/* form */
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+       
+
+        .booking-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .booking-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            padding: 0 8%;
+            
+            /* Background Image Logic */
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
+                        url('../images/deluxe.png'); 
+            background-size: cover;
+            background-position: center;
+            
+            /* Yeh background ko static rakhta hai */
+            background-attachment: fixed; 
+            
+            /* Animation for entry */
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        .pc{
+            font-size:13px;
+        }
+ 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Left Side Text - Sliding Animation */
+        .booking-left {
+            flex: 1;
+            color: #fff;
+            padding-right: 50px;
+            z-index: 2;
+            /* Scroll ke saath move hone ke liye transition aur animation */
+            animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .booking-left h2 {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 48px;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.6);
+        }
+
+        .reservation-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            /* background: rgba(255, 255, 255, 0.12); */
+            /* padding: 22px; */
+            /* border-radius: 12px; */
+            /* backdrop-filter: blur(8px); */
+            /* -webkit-backdrop-filter: blur(8px); */
+            /* width: fit-content; */
+            /* border: 1px solid rgba(255, 255, 255, 0.1); */
+            /* transition: transform 0.3s ease; */
+        }
+        .res-button-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    text-decoration: none; /* Underline hatane ke liye */
+    color: inherit;
+    gap: 15px;
+}
+.res-icon {
+    font-size: 24px;
+    color: #1A2A20; /* Dark green icon */
+}
+
+.res-text span {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+.res-numbers,
+.res-icon,
+.res-text span {
+    color: #FFFFFF; /* Hover par text white ho jayega */
+}
+
+.res-numbers {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+}
+        
+
+        .res-icon { font-size: 35px; color: #fff; }
+        .res-numbers { font-size: 18px; font-weight: 600; line-height: 1.5; }
+
+        /* Right Side Form - Sliding Animation */
+        .booking-right {
+            width: 440px;
+            background-color: rgba(246, 245, 240, 0.98); /* Slight transparency for elegance */
+            padding: 55px 45px;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            margin-right: 20px;
+            z-index: 2;
+            animation: slideInRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .form-header h3 {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 28px;
+            color: #1a1a1a;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            background-color:#F1EDE4;
+        }
+
+        .input-group {
+            position: relative;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group:hover { border-color: #1a2a20; }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 14px 15px;
+            border: none;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            background: transparent;
+        }
+
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 14px;
+        }
+
+        .check-btn {
+            grid-column: span 2;
+            background-color: #1a2a20;
+            color: #fff;
+            border: none;
+            padding: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .check-btn:hover {
+            background-color: #000;
+            letter-spacing: 3px;
+        }
+
+        /* Mobile View */
+        @media (max-width: 992px) {
+            .booking-section { 
+                flex-direction: column; 
+                padding: 80px 20px;
+                background-attachment: scroll; /* Mobile par fixed background performance issue deta hai */
+            }
+            .booking-left { padding-right: 0; margin-bottom: 50px; text-align: center; }
+            .reservation-box { margin: 0 auto; }
+            .booking-right { width: 100%; margin-right: 0; }
+        }
+    
+
+        /* footer term and condition */
+        /* Footer Links Container */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 0;
+    width: 100%;
+    /* Agar aap isse background image ke upar dikha rahe hain to ye center rahega */
+}
+
+/* Button Styling */
+.footer-btn {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff; /* White text */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 10px 20px;
+    /* border: 1px solid rsgba(255, 255, 255, 0.3); Transparent border */
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.05); /* Very light glass tint */
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.footer-btn:hover {
+    background: rgba(255, 255, 255, 1); /* Full white on hover */
+    color: #1a2a20; /* Text dark ho jayega hover par */
+    border-color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
