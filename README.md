@@ -94,3 +94,25 @@ The website is successfully deployed to AWS EC2 through a GitHub Actions CI/CD p
 - Add automated testing
 - Add AWS CloudWatch monitoring
 - Improve the deployment pipeline
+
+  ## Project Screenshots
+
+### GitHub Repository
+![GitHub Repository](screenshots/01-github-repository.png)
+
+### GitHub Actions Pipeline
+![GitHub Actions Success](screenshots/02-github-actions-success.png)
+
+### Deployment Workflow
+![Deployment Workflow](screenshots/03-deploy-workflow.png)
+
+### AWS EC2 Instance
+![AWS EC2](screenshots/04-aws-ec2-instance.png)
+
+### Website Running on EC2
+![Website](screenshots/05-website-running.png)
+
+### Nginx Server
+![Nginx](screenshots/06-nginx-running.png)
+
+
