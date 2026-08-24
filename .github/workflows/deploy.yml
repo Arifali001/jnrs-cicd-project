@@ -7,23 +7,21 @@ on:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-    - name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
 
-    - name: Deploy to EC2
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ubuntu
-        key: ${{ secrets.EC2_SSH_KEY }}
-
-        script: |
-          cd /var/www/html
-          sudo rm -rf *
-          git clone https://github.com/Arifali001/jnrs-cicd-project.git .
-          sudo systemctl restart nginx
+          script: |
+            sudo find /var/www/html -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+            sudo git clone https://github.com/Arifali001/jnrs-cicd-project.git /var/www/html
+            sudo chown -R www-data:www-data /var/www/html
+            sudo systemctl restart nginx
